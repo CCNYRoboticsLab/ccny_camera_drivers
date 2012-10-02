@@ -1,0 +1,14 @@
+<stack>
+  <description brief="ccny_camera_drivers">CCNY drivers for the MatrixVision BlueFox camera, the PointGrey cameras (branched from pgr_camera package), and a simple wrapper for a OpenCV capture device</description>
+  <author>Maintained by Carlos Jaramillo</author>
+  <license>GPL, BSD</license>  
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/ccny_camera_drivers</url>
+  <depend stack="common_msgs" /> <!-- sensor_msgs -->
+  <depend stack="driver_common" /> <!-- dynamic_reconfigure, driver_base -->
+  <depend stack="image_common" /> <!-- camera_info_manager, image_transport -->
+  <depend stack="nodelet_core" /> <!-- nodelet -->
+  <depend stack="ros" />
+  <depend stack="ros_comm" /> <!-- roscpp -->
+
+</stack>

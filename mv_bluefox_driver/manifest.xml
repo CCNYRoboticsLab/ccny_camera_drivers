@@ -1,0 +1,26 @@
+<package>
+  <description brief="mv_bluefox_driver">
+
+     Driver for MatrixVision BlueFox Cameras (it wraps arround mvIMPACT Acquire API that comes with the hardware)
+     
+  </description>
+  <author>Carlos Jaramillo</author>
+  <license>GPL</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/mv_bluefox_driver</url>
+  <depend package="roscpp"/>
+  <depend package="sensor_msgs"/>
+  <depend package="camera_info_manager"/>
+  <depend package="image_transport"/>
+  <depend package="nodelet"/>
+  <depend package="dynamic_reconfigure"/>
+  <depend package="driver_base"/> 
+  <!-- Needed for the driver_base/SensorLevels Message used in dynamic_reconfigure .cfg fie -->
+  
+  <export>
+    <nodelet plugin="${prefix}/mv_bluefox_driver_nodelet.xml"/>
+    <cpp cflags="-I${prefix}/include"/>
+  </export>
+</package>
+
+

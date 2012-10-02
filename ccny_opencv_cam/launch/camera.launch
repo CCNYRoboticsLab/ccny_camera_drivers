@@ -1,0 +1,23 @@
+<launch>
+     # Args for catasphereo node
+    <arg name="ccny_cam_node_name" value="ccny_opencv_cam_node" />   
+    <arg name="width" default="1280" />   
+    <arg name="height" default="960" />   
+
+    <node pkg="ccny_opencv_cam" name="$(arg ccny_cam_node_name)" type="camera_node" cwd="node" output="screen" respawn="false" >
+   	# when cwd="ROS_HOME", the images will be saved under /home/user/.ros (hidden folder)
+   	# when cwd="node", the images will be saved in the package's bin folder 
+   	
+		# vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+        # Using Video (Camera) device though OpenCV (and for Lane detection maskings):
+        <param name="show_video" value="false"/>
+        <param name="publish_as_ROS_msg" value="true"/>
+        <param name="opencv_img_topic_name" value="camera"/>
+
+        <param name="video_port_number" value="1"/> # O; if mounted under /dev/video0, 1: for /dev/video1
+        <param name="camera_width" value="$(arg width)"/> # Hi Def: W=1600px
+        <param name="camera_height" value="$(arg height)"/> # Hi Def: H=1200px
+        <param name="camera_fps" value="30"/>  # Max FPS:10 for 1600x1200
+    </node> 
+    
+</launch>

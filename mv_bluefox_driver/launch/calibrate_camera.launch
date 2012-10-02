@@ -1,0 +1,17 @@
+<launch>
+
+	<!-- Variable names -->
+	<arg name="camera_node" default="mv_bluefox_camera_node" />
+	<arg name="calibration_file" default="file://$(find mv_bluefox_driver)/cfg/mv_bluefox_calibration.yaml" />
+	
+    <include file="$(find mv_bluefox_driver)/launch/camera_node_proc.launch">
+        <arg name="camera_node"      value="$(arg camera_node)" /> 
+        <arg name="calibration_file" value="$(arg calibration_file)" />
+    </include>   
+
+	<!-- Mono -->
+    <node pkg="camera_calibration" name="cameracalibrator" type="cameracalibrator.py" args="--size 9x6 --square 0.042 --no-service-check">
+     <remap from="image" to="/$(arg camera_node)/image_raw"/>
+     <remap from="camera" to="/$(arg camera_node)"/>
+    </node> 
+</launch>

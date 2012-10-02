@@ -1,0 +1,19 @@
+<launch>
+  # Variable names
+  <arg name="camera_node" default="mv_bluefox_camera_node" />
+  
+  <node pkg="nodelet" type="nodelet" name="camera_process" args="manager" output="screen"/>
+
+  <node pkg="nodelet" type="nodelet" name="$(arg camera_node)" args="load mv_bluefox_driver/CameraNodelet /camera_process" output="screen">
+	<param name="width" type="int" value="752" />
+    <param name="height" type="int" value="480" />
+    <param name="use_color" type="bool" value="true" />
+    <param name="auto_gain" type="bool" value="true" />
+    <param name="frame_id" type="string" value="bluefox" />
+ 	<param name="calibration_file" type="string" value="file://$(find mv_bluefox_driver)/cfg/mv_bluefox_calibration.yaml" />
+  </node>
+  
+</launch>
+
+ 
+  

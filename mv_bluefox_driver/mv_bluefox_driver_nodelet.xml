@@ -1,0 +1,7 @@
+<library path="lib/libmv_bluefox_driver_nodelet">
+  <class name="mv_bluefox_driver/CameraNodelet" type="mv_bluefox_driver::CameraNodelet" base_class_type="nodelet::Nodelet">	
+    <description>
+      A node that controls and publishes a single MV BlueFox camera.
+    </description>
+  </class>
+</library>

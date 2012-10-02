@@ -1,0 +1,22 @@
+<launch>
+
+	<!-- Variable names -->
+	<arg name="camera_node" default="pgr_camera_node" />
+	<arg name="calibration_file" default="file://$(find catasphereo)/config/camera/pgr_camera_color_calibration.yaml" />
+	
+    <include file="$(find pgr_camera_driver)/launch/camera_node_proc.launch">
+        <arg name="camera_node"      value="$(arg camera_node)" /> 
+        <arg name="calibration_file" value="$(arg calibration_file)" />
+    </include>   
+
+	# Monocular camera
+    # Bigger pattern --size 9x6 --square 0.042 
+    # Small pattern --size 8x6 --square 0.024 
+    # NOTE: Buttons to hit
+    # 1) Calibrate
+    # 2) Commit (Don't hit Save...cuz it fails)
+    <node pkg="camera_calibration" name="cameracalibrator" type="cameracalibrator.py" args="--size 8x6 --square 0.024">
+     <remap from="image" to="/$(arg camera_node)/image_raw"/>
+     <remap from="camera" to="/$(arg camera_node)"/>
+    </node> 
+</launch>

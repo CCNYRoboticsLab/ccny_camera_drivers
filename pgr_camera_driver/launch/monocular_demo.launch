@@ -1,0 +1,29 @@
+
+	<!--
+		mono.launch Start a pgr_camera node at 640x480, 15 FPS, Y8. Also start
+		an image_view.
+	-->
+<launch>
+  <!-- Variable names -->
+  <arg name="camera_node" default="pgr_camera_node" />
+  <arg name="calibration_file" default="file://$(find pgr_camera_driver)/test_intrinsics.ini" />
+    
+  <node name="$(arg camera_node)" pkg="pgr_camera_driver" type="pgr_camera_node" respawn="false" output="screen">
+        <!-- HAS NO EFFECT HERE (b/c parameters are set through dynamic_reconfigure)
+        <param name="width" type="int" value="1280" /> # Default 640
+        <param name="height" type="int" value="960" /> # Default 480
+        <param name="format" value="Y8" /> # Y8 works with Color (Don't Select RGB if you don't know)
+        <param name="frame_rate" type="int" value="15" />
+        <param name="camera_name" type="str" value="pgr_camera" />
+        -->
+        
+        # NECESSARY:  
+        <param name="intrinsics_ini" type="str" value="$(arg calibration_file)" />
+  </node> 
+  
+	<node name="image_view" pkg="image_view" type="image_view"
+		respawn="false" output="screen">
+		<remap from="image" to="/$(arg camera_node)/image_raw" />
+	</node>
+</launch>
+

@@ -1,0 +1,23 @@
+<package>
+  <description brief="ccny_opencv_cam">
+
+     ccny_opencv_cam
+
+  </description>
+  <author>Carlos Jaramillo</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/ccny_opencv_cam</url>
+  <depend package="roscpp"/>
+  <depend package="rospy"/>
+  <depend package="std_msgs"/>
+  <depend package="sensor_msgs"/>
+  <depend package="image_transport"/>
+  <depend package="camera_info_manager"/>
+
+  <depend package="cv_bridge" />
+  <rosdep name="opencv2.3"/>
+
+</package>
+
+

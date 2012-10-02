@@ -1,0 +1,20 @@
+image_width: 752
+image_height: 480
+camera_name: mv_bluefox
+camera_matrix:
+  rows: 3
+  cols: 3
+  data: [983.052720486436, 0, 369.267437288502, 0, 982.53974806456, 214.248932362744, 0, 0, 1]
+distortion_model: plumb_bob
+distortion_coefficients:
+  rows: 1
+  cols: 5
+  data: [-0.456677810023114, 0.47878529617487, 0.000480684718556241, 0.00126667939345659, -0.736397171824799]
+rectification_matrix:
+  rows: 3
+  cols: 3
+  data: [1, 0, 0, 0, 1, 0, 0, 0, 1]
+projection_matrix:
+  rows: 3
+  cols: 4
+  data: [915.998350580699, 0, 368.50168689619, 0, 0, 953.098058861314, 212.488990900112, 0, 0, 0, 1, 0]

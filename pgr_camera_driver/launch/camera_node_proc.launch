@@ -1,0 +1,15 @@
+<launch>
+  <!-- Variable names -->
+  <arg name="respawn" default="false" />
+  <arg name="camera_node" default="pgr_camera_node" />
+  <arg name="calibration_file" default="file://$(find catasphereo)/config/camera/pgr_camera_mono_calibration.yaml" />
+  	
+  <include file="$(find pgr_camera_driver)/launch/camera_node.launch">
+        <arg name="camera_node"      value="$(arg camera_node)" /> <!-- Fully resolved ? -->
+        <arg name="calibration_file" value="$(arg calibration_file)" />
+        <arg name="respawn" value="$(arg respawn)" />
+  </include>   
+ 
+  # Use this only if a calibration file exists
+  <node name="image_proc" pkg="image_proc" type="image_proc"  output="screen" ns="$(arg camera_node)" />
+</launch>

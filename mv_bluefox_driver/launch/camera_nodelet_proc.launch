@@ -1,0 +1,12 @@
+<launch>
+  # Variable names
+  <arg name="camera_node" default="mv_bluefox_camera_node" />
+  
+  <include file="$(find mv_bluefox_driver)/launch/camera_nodelet.launch"/>   
+      
+  # Use this only if a calibration file exists
+  <node name="image_proc" pkg="image_proc" type="image_proc"  output="screen" ns="$(arg camera_node)" />
+</launch>
+
+ 
+  

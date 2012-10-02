@@ -1,0 +1,35 @@
+<package>
+	<description brief="pgr_camera_driver">
+		A ROS node to provide access to Point Grey Research cameras, using the
+		FlyCapture2 SDK API
+		Acknowledgement: This package is based largely on the prosilica_camera package,
+		by Patrick Mihelich (http://www.ros.org/wiki/prosilica_camera).
+		Originally developed by Patrick Bouffard.
+		Reason for branching from original package: 
+		<ol>
+		    <li>For better calibration purposes (with ROS camera_calibration pkg) it needs to use the camera_info_manager package. See example launch files.</li>
+		    <li>Adding support for color cameras</li>
+		</ol>
+	</description>
+	<author> Mantained by Carlos Jaramillo (Original Author: Patrick Bouffard)</author>
+	<license>BSD</license>
+	<review status="unreviewed" notes="Unstable (W.I.P.)" />
+	<url>http://ros.org/wiki/pgr_camera_driver</url>
+	<depend package="roscpp" />
+	<depend package="std_msgs" />
+	<depend package="sensor_msgs" />
+	<depend package="diagnostic_updater" />
+	<depend package="diagnostic_msgs" />
+	<depend package="image_transport" />
+	<depend package="self_test" />
+	<depend package="driver_base" />
+	<depend package="dynamic_reconfigure" />
+	<depend package="camera_calibration_parsers" />
+	<depend package="camera_info_manager"/>
+	<depend package="polled_camera" />
+	<export>
+		<rosdoc config="rosdoc.yaml" />
+	</export>
+</package>
+
+

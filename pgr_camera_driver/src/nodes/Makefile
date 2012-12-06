@@ -36,10 +36,10 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/carlos/ros/stacks/ccny-ros-pkg/external/ccny_drivers/pgr_camera_driver
+CMAKE_SOURCE_DIR = /home/carlos/ros/stacks/ccny-ros-pkg/github/ccny_camera_drivers/pgr_camera_driver
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/carlos/ros/stacks/ccny-ros-pkg/external/ccny_drivers/pgr_camera_driver
+CMAKE_BINARY_DIR = /home/carlos/ros/stacks/ccny-ros-pkg/github/ccny_camera_drivers/pgr_camera_driver
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -66,14 +66,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/carlos/ros/stacks/ccny-ros-pkg/external/ccny_drivers/pgr_camera_driver && $(CMAKE_COMMAND) -E cmake_progress_start /home/carlos/ros/stacks/ccny-ros-pkg/external/ccny_drivers/pgr_camera_driver/CMakeFiles /home/carlos/ros/stacks/ccny-ros-pkg/external/ccny_drivers/pgr_camera_driver/src/nodes/CMakeFiles/progress.marks
-	cd /home/carlos/ros/stacks/ccny-ros-pkg/external/ccny_drivers/pgr_camera_driver && $(MAKE) -f CMakeFiles/Makefile2 src/nodes/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/carlos/ros/stacks/ccny-ros-pkg/external/ccny_drivers/pgr_camera_driver/CMakeFiles 0
+	cd /home/carlos/ros/stacks/ccny-ros-pkg/github/ccny_camera_drivers/pgr_camera_driver && $(CMAKE_COMMAND) -E cmake_progress_start /home/carlos/ros/stacks/ccny-ros-pkg/github/ccny_camera_drivers/pgr_camera_driver/CMakeFiles /home/carlos/ros/stacks/ccny-ros-pkg/github/ccny_camera_drivers/pgr_camera_driver/src/nodes/CMakeFiles/progress.marks
+	cd /home/carlos/ros/stacks/ccny-ros-pkg/github/ccny_camera_drivers/pgr_camera_driver && $(MAKE) -f CMakeFiles/Makefile2 src/nodes/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/carlos/ros/stacks/ccny-ros-pkg/github/ccny_camera_drivers/pgr_camera_driver/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/carlos/ros/stacks/ccny-ros-pkg/external/ccny_drivers/pgr_camera_driver && $(MAKE) -f CMakeFiles/Makefile2 src/nodes/clean
+	cd /home/carlos/ros/stacks/ccny-ros-pkg/github/ccny_camera_drivers/pgr_camera_driver && $(MAKE) -f CMakeFiles/Makefile2 src/nodes/clean
 .PHONY : clean
 
 # The main clean target
@@ -82,22 +82,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/carlos/ros/stacks/ccny-ros-pkg/external/ccny_drivers/pgr_camera_driver && $(MAKE) -f CMakeFiles/Makefile2 src/nodes/preinstall
+	cd /home/carlos/ros/stacks/ccny-ros-pkg/github/ccny_camera_drivers/pgr_camera_driver && $(MAKE) -f CMakeFiles/Makefile2 src/nodes/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/carlos/ros/stacks/ccny-ros-pkg/external/ccny_drivers/pgr_camera_driver && $(MAKE) -f CMakeFiles/Makefile2 src/nodes/preinstall
+	cd /home/carlos/ros/stacks/ccny-ros-pkg/github/ccny_camera_drivers/pgr_camera_driver && $(MAKE) -f CMakeFiles/Makefile2 src/nodes/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/carlos/ros/stacks/ccny-ros-pkg/external/ccny_drivers/pgr_camera_driver && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/carlos/ros/stacks/ccny-ros-pkg/github/ccny_camera_drivers/pgr_camera_driver && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/nodes/CMakeFiles/pgr_camera_node.dir/rule:
-	cd /home/carlos/ros/stacks/ccny-ros-pkg/external/ccny_drivers/pgr_camera_driver && $(MAKE) -f CMakeFiles/Makefile2 src/nodes/CMakeFiles/pgr_camera_node.dir/rule
+	cd /home/carlos/ros/stacks/ccny-ros-pkg/github/ccny_camera_drivers/pgr_camera_driver && $(MAKE) -f CMakeFiles/Makefile2 src/nodes/CMakeFiles/pgr_camera_node.dir/rule
 .PHONY : src/nodes/CMakeFiles/pgr_camera_node.dir/rule
 
 # Convenience name for target.
@@ -106,22 +106,22 @@ pgr_camera_node: src/nodes/CMakeFiles/pgr_camera_node.dir/rule
 
 # fast build rule for target.
 pgr_camera_node/fast:
-	cd /home/carlos/ros/stacks/ccny-ros-pkg/external/ccny_drivers/pgr_camera_driver && $(MAKE) -f src/nodes/CMakeFiles/pgr_camera_node.dir/build.make src/nodes/CMakeFiles/pgr_camera_node.dir/build
+	cd /home/carlos/ros/stacks/ccny-ros-pkg/github/ccny_camera_drivers/pgr_camera_driver && $(MAKE) -f src/nodes/CMakeFiles/pgr_camera_node.dir/build.make src/nodes/CMakeFiles/pgr_camera_node.dir/build
 .PHONY : pgr_camera_node/fast
 
 # target to build an object file
 pgr_camera_node.o:
-	cd /home/carlos/ros/stacks/ccny-ros-pkg/external/ccny_drivers/pgr_camera_driver && $(MAKE) -f src/nodes/CMakeFiles/pgr_camera_node.dir/build.make src/nodes/CMakeFiles/pgr_camera_node.dir/pgr_camera_node.o
+	cd /home/carlos/ros/stacks/ccny-ros-pkg/github/ccny_camera_drivers/pgr_camera_driver && $(MAKE) -f src/nodes/CMakeFiles/pgr_camera_node.dir/build.make src/nodes/CMakeFiles/pgr_camera_node.dir/pgr_camera_node.o
 .PHONY : pgr_camera_node.o
 
 # target to preprocess a source file
 pgr_camera_node.i:
-	cd /home/carlos/ros/stacks/ccny-ros-pkg/external/ccny_drivers/pgr_camera_driver && $(MAKE) -f src/nodes/CMakeFiles/pgr_camera_node.dir/build.make src/nodes/CMakeFiles/pgr_camera_node.dir/pgr_camera_node.i
+	cd /home/carlos/ros/stacks/ccny-ros-pkg/github/ccny_camera_drivers/pgr_camera_driver && $(MAKE) -f src/nodes/CMakeFiles/pgr_camera_node.dir/build.make src/nodes/CMakeFiles/pgr_camera_node.dir/pgr_camera_node.i
 .PHONY : pgr_camera_node.i
 
 # target to generate assembly for a file
 pgr_camera_node.s:
-	cd /home/carlos/ros/stacks/ccny-ros-pkg/external/ccny_drivers/pgr_camera_driver && $(MAKE) -f src/nodes/CMakeFiles/pgr_camera_node.dir/build.make src/nodes/CMakeFiles/pgr_camera_node.dir/pgr_camera_node.s
+	cd /home/carlos/ros/stacks/ccny-ros-pkg/github/ccny_camera_drivers/pgr_camera_driver && $(MAKE) -f src/nodes/CMakeFiles/pgr_camera_node.dir/build.make src/nodes/CMakeFiles/pgr_camera_node.dir/pgr_camera_node.s
 .PHONY : pgr_camera_node.s
 
 # Help Target
@@ -147,6 +147,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/carlos/ros/stacks/ccny-ros-pkg/external/ccny_drivers/pgr_camera_driver && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/carlos/ros/stacks/ccny-ros-pkg/github/ccny_camera_drivers/pgr_camera_driver && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

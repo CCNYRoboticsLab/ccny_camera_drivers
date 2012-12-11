@@ -28,6 +28,7 @@ installed: $(SOURCE_DIR)/unpacked
 
 clean:
 	rm -rf $(CURDIR)/lib $(CURDIR)/include $(CURDIR)/bin installed 
+	sudo rm -rf /usr/local/lib/libmv* /usr/local/lib/libwxPropGrid*
 
 wipe: clean
 	rm -rf $(SOURCE_DIR)

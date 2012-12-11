@@ -1,4 +1,4 @@
-CCNY RGB-D tools 
+CCNY Camera Drivers
 ===================================
 
 Carlos Jaramillo  

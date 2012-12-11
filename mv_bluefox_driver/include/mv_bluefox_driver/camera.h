@@ -3,7 +3,7 @@
 #include <boost/thread.hpp>
 #include <boost/thread/mutex.hpp>
 #include <camera_info_manager/camera_info_manager.h>
-#include <mv_bluefox_driver/mvIMPACT_acquire.h>
+#include <ccny_mvVirtualDevice/mvIMPACT_CPP/mvIMPACT_acquire.h>
 
 //#define DEVELOP
 #define PRESS_A_KEY getchar();
@@ -43,6 +43,7 @@ public:
   Camera(ros::NodeHandle comm_nh, ros::NodeHandle param_nh);
   void sendInfo(sensor_msgs::ImagePtr &image, ros::Time time);
   void feedImages();
+
   ~Camera();
 
 private:
@@ -62,7 +63,8 @@ private:
   boost::mutex img_buffer_mutex_lock_; ///< Thread lock on image buffer
 //  unsigned char *img_frame_buffer_; ///< where data of images are stored
 
-  int width, height, fps, skip_frames, frames_to_skip;
+  int width_, height_;
+  int fps, skip_frames, frames_to_skip;
   std::string device, frame;
   bool rotate;
   bool use_color_; ///< To indicate whether we want to use 3-channel (RGB) or 1-channel (grayscale) images
@@ -89,6 +91,8 @@ private:
 
   bool initMVDevices(); ///< Initializes several mv device(s). Return true if succeeded // TODO: not being used
   bool initSingleMVDevice(); ///< Initializes a single mv device. Return true if succeeded
+  void setCameraSize(mvIMPACT::acquire::SettingsBlueFOX &settings, int width, int height);  ///< Sets frame size, fixing AOI for now
+
   bool using_pthreads; ///< indicates whether code is using the pthreaded implementation
 //  static void* liveThread( void* pData );
 //  static unsigned int thread_func( void* pData ); ///< The actual Thread for the device

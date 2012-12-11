@@ -32,3 +32,5 @@ lib
 msg_gen
 srv_gen
 src/*/cfg
+ccny_mvVirtualDevice/include
+ccny_mvVirtualDevice/installed

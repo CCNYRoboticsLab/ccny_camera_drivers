@@ -1,0 +1,18 @@
+<package>
+  <description brief="ccny_mvVirtualDevice">
+
+     Local install of Matrix Vision SDK mvVirtualDevice for x86
+
+  </description>
+  <author>Carlos Jaramillo</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>https://github.com/ccny-ros-pkg/ccny_camera_drivers/ccny_mvVirtualDevice</url>
+
+  <export>
+    <cpp cflags="-I${prefix}/include"  lflags="-L${prefix}/lib"/>
+  </export>
+
+</package>
+
+

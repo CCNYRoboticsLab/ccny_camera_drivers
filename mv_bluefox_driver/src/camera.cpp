@@ -34,8 +34,8 @@ Camera::Camera(ros::NodeHandle _comm_nh, ros::NodeHandle _param_nh) :
   pnode.param("skip_frames", skip_frames, 0);
   frames_to_skip = 0;
 
-  pnode.param("width", width, 752);
-  pnode.param("height", height, 480);
+  pnode.param("width", width_, 752);
+  pnode.param("height", height_, 480);
 
   pnode.param("frame_id", frame, std::string("camera"));
   pnode.param("request_timeout_ms", request_timeout_ms_, 8000);
@@ -179,6 +179,11 @@ bool Camera::initMVDevices()
   return true;
 }
 
+void Camera::setCameraSize(mvIMPACT::acquire::SettingsBlueFOX& settings, int width, int height)
+{
+  settings.cameraSetting.aoiWidth.write( width );
+  settings.cameraSetting.aoiHeight.write( height );
+}
 
 bool Camera::initSingleMVDevice()
 {
@@ -250,6 +255,8 @@ bool Camera::initSingleMVDevice()
 
    // Set Properties
    mvIMPACT::acquire::SettingsBlueFOX settings(threaded_device_->device()); // Using the "Base" settings (default)
+
+   setCameraSize(settings, this->width_, this->height_);
 
    if(auto_gain_)
      settings.cameraSetting.gain_dB.write( 12.0 ); // Maximum gain
@@ -519,7 +526,7 @@ bool Camera::grab(sensor_msgs::ImagePtr image)
 
        image->height = pRequest->imageHeight.read();
        image->width = pRequest->imageWidth.read();
-       image->step = channels * width; // step is the line offset
+       image->step = channels * width_; // step is the line offset
 
        if(channels == 1)
          // Grayscale
@@ -534,7 +541,7 @@ bool Camera::grab(sensor_msgs::ImagePtr image)
         image->data.resize(image->step * image->height);
 
         img_frame = (const unsigned char*)pRequest->imageData.read();
-        memcpy(&image->data[0], img_frame, width * height * channels);
+        memcpy(&image->data[0], img_frame, width_ * height_ * channels);
 
         status = true;
 

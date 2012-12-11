@@ -19,12 +19,8 @@ rosbuild_init()
 #rosbuild_add_executable(example examples/example.cpp)
 #target_link_libraries(example ${PROJECT_NAME})
 
+# boost
 rosbuild_add_boost_directories()
-
-#set the default path for built executables to the "bin" directory
-set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
-#set the default path for built libraries to the "lib" directory
-set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 
 #uncomment if you have defined messages
 #rosbuild_genmsg()
@@ -37,10 +33,33 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 #gencfg()
 
 # set(MVIMPACT_LIBRARIES   mvDeviceManager mvBlueFOX??? dl??? )
-set(MVIMPACT_LIBRARIES   mvDeviceManager)
+set(MVIMPACT_LIBRARIES   mvDeviceManager) # The mvDeviceManager library (library is external, and should be able to be found in the system path, such as /usr/local/lib/ )
+
+################################################################
+# Build libraries
+################################################################
 
 rosbuild_add_library(mv_bluefox_driver_nodelet src/nodelets.cpp src/camera.cpp)
-target_link_libraries(mv_bluefox_driver_nodelet ${MVIMPACT_LIBRARIES}) # link the nodelet to the mvDeviceManager library 
+
+################################################################
+# Build mv_bluefox_driver (Node and nodelet)
+################################################################
+
+#set the default path for built executables to the "bin" directory
+set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
+#set the default path for built libraries to the "lib" directory
+set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
+
+# link the nodelet to the mvDeviceManager library (library is external, and should be able to be found in the system path, such as /usr/local/lib/ )
+target_link_libraries(mv_bluefox_driver_nodelet
+         ${MVIMPACT_LIBRARIES}
+         boost_signals 
+         boost_system
+         ) 
  
 rosbuild_add_executable(camera_node src/camera_node.cpp src/camera.cpp)
-target_link_libraries(camera_node ${MVIMPACT_LIBRARIES})
+target_link_libraries(camera_node
+         ${MVIMPACT_LIBRARIES}
+         boost_signals 
+         boost_system
+         )

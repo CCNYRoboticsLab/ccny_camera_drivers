@@ -290,8 +290,8 @@ public:
     // If we don't have a calibration, set the image dimensions
     if (cam_info->K[0] == 0.0)
     {
-      cam_info->width = img.height = width_;
-      cam_info->height = img.width = height_;
+      cam_info->width = img.width = width_;
+      cam_info->height = img.height = height_;
     }
 
     // TF frame

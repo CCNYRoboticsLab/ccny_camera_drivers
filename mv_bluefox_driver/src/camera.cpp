@@ -32,6 +32,7 @@ Camera::Camera(ros::NodeHandle _comm_nh, ros::NodeHandle _param_nh) :
   pnode.param("use_color", use_color_, false);
   pnode.param("fps", fps, 30);
   pnode.param("skip_frames", skip_frames, 0);
+  pnode.param("expose_us", expose_us_, 8000);
   frames_to_skip = 0;
 
   pnode.param("width", width_, 752);
@@ -262,6 +263,8 @@ bool Camera::initSingleMVDevice()
      settings.cameraSetting.gain_dB.write( 12.0 ); // Maximum gain
    else
      settings.cameraSetting.gain_dB.restoreDefault();
+		 //Set expose_us
+	 settings.cameraSetting.expose_us.write(expose_us_);
 
    mvIMPACT::acquire::ImageDestination imgDst(threaded_device_->device());
    // TODO: width, height, etc. (defaulting now to highest resolution)

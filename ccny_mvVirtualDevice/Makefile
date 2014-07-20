@@ -1,12 +1,12 @@
 all: installed
 
 BUILD_DIR   = build
-TARBALL_PREFIX = mvVirtualDevice-x86_ABI2-2.1.4
+TARBALL_PREFIX = mvIMPACT_acquire-x86_64-2.9.2
 TARBALL     = $(BUILD_DIR)/$(TARBALL_PREFIX).tgz
-TARBALL_URL = http://www.matrix-vision.com/mvvirtualdevice-442.html?file=tl_files/mv11/support/mvIMPACT_Acquire/01/$(TARBALL_PREFIX).tgz
-UNPACK_CMD  = tar zxf
-SOURCE_DIR  = $(BUILD_DIR)/mvIMPACT_acquire-x86-2.1.4
-MD5SUM_FILE = $(TARBALL_PREFIX).tgz.md5sum
+TARBALL_URL = http://www.matrix-vision.com/latest-drivers.html?file=tl_files/mv11/support/mvIMPACT_Acquire/01/mvBlueFOX-x86_64_ABI2-2.9.2.tgz
+UNPACK_CMD  = tar xf
+SOURCE_DIR  = $(BUILD_DIR)/mvIMPACT_acquire-x86_64-2.9.2
+#MD5SUM_FILE = $(TARBALL_PREFIX).tgz.md5sum
 
 include $(shell rospack find mk)/download_unpack_build.mk
 
@@ -20,10 +20,10 @@ installed: $(SOURCE_DIR)/unpacked
 	cp -r $(SOURCE_DIR)/mvIMPACT_CPP ./include/ccny_mvVirtualDevice/
 	cp -r $(SOURCE_DIR)/mvPropHandling ./include/
 	mkdir -p ./lib
-	cp $(SOURCE_DIR)/lib/x86/* ./lib
-	sudo cp $(SOURCE_DIR)/lib/x86/* /usr/local/lib
+	cp $(SOURCE_DIR)/lib/x86_64/* ./lib
+	sudo cp $(SOURCE_DIR)/lib/x86_64/* /usr/local/lib
 	sudo ldconfig
-	cp $(SOURCE_DIR)/apps/mvPropView/x86/wxPropView ./bin	
+	cp $(SOURCE_DIR)/apps/mvPropView/x86_64/wxPropView ./bin	
 	touch installed
 
 clean:
